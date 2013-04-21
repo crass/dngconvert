@@ -297,7 +297,7 @@ void DngHost::PerformAreaTask(dng_area_task &task,
 
 dng_negative* DngHost::Make_dng_negative()
 {
-    return DngNegative::Make(Allocator());
+    return DngNegative::Make(*this);
 }
 
 dng_ifd* DngHost::Make_dng_ifd()

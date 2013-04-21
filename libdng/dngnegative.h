@@ -24,10 +24,10 @@
 class DngNegative : public dng_negative
 {
 public:
-    DngNegative(dng_memory_allocator &allocator);
+    DngNegative(dng_host &host);
     ~DngNegative(void);
 
-    static dng_negative* Make(dng_memory_allocator &allocator);
+    static dng_negative* Make(dng_host &host);
 
 protected:
     virtual dng_mosaic_info* MakeMosaicInfo();

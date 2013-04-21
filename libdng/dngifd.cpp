@@ -37,9 +37,11 @@ bool DngIfd::CanRead() const
 
 void DngIfd::ReadImage(dng_host &host,
                        dng_stream &stream,
-                       dng_image &image) const
+                       dng_image &image,
+                       dng_jpeg_image *jpegImage,
+                       dng_fingerprint *jpegDigest) const
 {
     DngReadImage reader;
-    reader.Read(host, *this, stream, image);
+    reader.Read(host, *this, stream, image, jpegImage, jpegDigest);
 }
 

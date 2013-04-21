@@ -29,5 +29,6 @@ public:
 
 public:
     virtual bool CanRead() const;
-    virtual void ReadImage(dng_host &host, dng_stream &stream, dng_image &image) const;
+    virtual void ReadImage(dng_host &host, dng_stream &stream, dng_image &image,
+        dng_jpeg_image *jpegImage = NULL, dng_fingerprint *jpegDigest = NULL) const;
 };

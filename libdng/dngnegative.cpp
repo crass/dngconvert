@@ -20,8 +20,8 @@
 #include "dngnegative.h"
 #include "dngmosaicinfo.h"
 
-DngNegative::DngNegative(dng_memory_allocator &allocator) :
-    dng_negative(allocator)
+DngNegative::DngNegative(dng_host &host) :
+    dng_negative(host)
 {
 }
 
@@ -41,9 +41,9 @@ dng_mosaic_info* DngNegative::MakeMosaicInfo()
     return info;
 }
 
-dng_negative* DngNegative::Make(dng_memory_allocator &allocator)
+dng_negative* DngNegative::Make(dng_host &host)
 {
-    AutoPtr<DngNegative> result(new DngNegative(allocator));
+    AutoPtr<DngNegative> result(new DngNegative(host));
 
     if (!result.Get())
     {
