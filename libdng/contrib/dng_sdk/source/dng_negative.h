@@ -53,7 +53,7 @@
 // negatives, but will prevent access to the embedded data on const
 // negatives.
 
-#if 1
+#if 0
 
 #define qMetadataOnConst 0
 #define METACONST
