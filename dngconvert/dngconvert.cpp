@@ -367,7 +367,7 @@ int main(int argc, const char* argv [])
             negative->SetPrivateData(blockPriv);
         }
 
-        negative->RebuildIPTC(true, false);
+        negative->RebuildIPTC(true);
     }
 
     // -----------------------------------------------------------------------------------------
@@ -513,6 +513,12 @@ int main(int argc, const char* argv [])
 
     // -----------------------------------------------------------------------------------------
 
+    dng_preview_list preview_list;
+    AutoPtr<dng_preview> preview_image(dynamic_cast<dng_preview*>(&thumbnail));
+    preview_list.Append(preview_image);
+
+    // -----------------------------------------------------------------------------------------
+
     dng_image_writer writer;
 
     // output filename: replace raw file extension with .dng
@@ -531,7 +537,7 @@ int main(int argc, const char* argv [])
 
     dng_file_stream filestream(lpszOutFileName.c_str(), true);
 
-    writer.WriteDNG(host, filestream, *negative.Get(), thumbnail, ccJPEG, &previewList);
+    writer.WriteDNG(host, filestream, *negative.Get(), &preview_list, dngVersion_None, true);
 
     dng_xmp_sdk::TerminateSDK();
 
