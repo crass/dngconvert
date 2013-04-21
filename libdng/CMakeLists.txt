@@ -1,4 +1,6 @@
 
+FIND_PACKAGE(Threads)
+
 FIND_PACKAGE( EXPAT )
 INCLUDE_DIRECTORIES( ${EXPAT_INCLUDE_DIR} )
 ADD_DEFINITIONS(${EXPAT_DEFINITIONS})
@@ -160,7 +162,7 @@ SET( LIBDNGSDK_SRCS
 
 ADD_LIBRARY( dngsdk STATIC ${LIBDNGSDK_SRCS} )
 
-TARGET_LINK_LIBRARIES( dngsdk xmpsdk )
+TARGET_LINK_LIBRARIES( dngsdk xmpsdk ${CMAKE_THREAD_LIBS_INIT})
 
 
 # =======================================================
