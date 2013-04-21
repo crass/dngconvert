@@ -1423,7 +1423,7 @@ static bool AVCHD_SetXMPMakeAndModel ( SXMPMeta& xmpObj, const AVCHD_blkClipExte
 			case kMakerIDPanasonic : xmpValue = "Panasonic";	break;
 			case kMakerIDSony : xmpValue = "Sony";				break;
 			default :
-				std::sprintf ( hexMakeNumber, "0x%04x", clipExtData.mClipInfoExt.mMakerID );
+				sprintf ( hexMakeNumber, "0x%04x", clipExtData.mClipInfoExt.mMakerID );
 				xmpValue = hexMakeNumber;
 				
 				break;
@@ -1478,7 +1478,7 @@ static bool AVCHD_SetXMPMakeAndModel ( SXMPMeta& xmpObj, const AVCHD_blkClipExte
 			// Panasonic has said that if we don't have a string for the model number, they'd like to see the code
 			// anyway. We'll do the same for every manufacturer except Sony, who have said that they use
 			// the same model number for multiple cameras.
-			std::sprintf ( hexModelNumber, "0x%04x", clipExtData.mClipInfoExt.mMakerModelCode );
+			sprintf ( hexModelNumber, "0x%04x", clipExtData.mClipInfoExt.mMakerModelCode );
 			xmpValue = hexModelNumber;		
 		}
 		
